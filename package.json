@@ -1,10 +1,36 @@
 {
   "name": "quiz",
   "version": "1.0.0",
+  "types": "lib/index.d.ts",
   "description": "quiz component",
-  "main": "index.js",
+  "files": [
+    "lib/"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "@types/react": "^18.0.21",
+    "@types/react-dom": "^18.0.6",
+    "husky": "*",
+    "lint-staged": "*",
+    "mkdirp": "^1.0.4",
+    "prettier": "^2.0.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^4.8.4"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "precommit": "lint-staged",
+    "prepublish": "npm run build",
+    "prettier": "prettier --write \"src/**/*.{ts,tsx}\"",
+    "prettier:check": "prettier --list-different \"src/**/*.{ts,tsx}\"",
+    "build": "tsc",
+    "build:watch": "tsc --watch"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "repository": {
     "type": "git",
