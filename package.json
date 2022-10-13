@@ -1,0 +1,23 @@
+{
+  "name": "quiz",
+  "version": "1.0.0",
+  "description": "quiz component",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hardsmile98/quiz-component.git"
+  },
+  "keywords": [
+    "quiz",
+    "component"
+  ],
+  "author": " <deniskotelev@bk.ru>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hardsmile98/quiz-component/issues"
+  },
+  "homepage": "https://github.com/hardsmile98/quiz-component#readme"
+}
