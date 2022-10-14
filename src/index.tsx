@@ -1,7 +1,5 @@
-import React from 'react';
+import Quiz from "./Quiz";
 
-function Quiz(){
-    return <div>INIT</div>
-}
-
-export default Quiz;
+export { 
+    Quiz as default,
+};
