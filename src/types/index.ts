@@ -5,41 +5,41 @@
 // shuffle - mixing questions
 // locale - object to override text
 type QuizProps = {
-    isShowAllQuestions?: boolean,
-    onComplete?: Function,
-    onQuestionSubmit?: Function,
-    quiz: Quiz,
-    shuffle?: boolean,
-    locale?: Locale,
-}
+  isShowAllQuestions?: boolean,
+  onComplete?: Function,
+  onQuestionSubmit?: Function,
+  quiz: Quiz,
+  shuffle?: boolean,
+  locale?: Locale,
+};
 
 type Quiz = {
-    title?: string
-    description?: string
-    questions: Array<Question>
-}
+  title?: string
+  description?: string
+  questions: Array<Question>
+};
 
 type Question = {
-    question: string
-    image?: string,
-    answers: Array<string>
-    correctAnswer: number
-    point?: number
-    messageForCorrectAnswer?: string
-    messageForIncorrectAnswer?: string
-}
+  question: string
+  image?: string,
+  answers: Array<string>
+  correctAnswer: number
+  point?: number
+  messageForCorrectAnswer?: string
+  messageForIncorrectAnswer?: string
+};
 
 type Locale = {
-    question?:  string
-    nextButton?: string
-    resultButton?: string
-    correctAnswer?: string
-    incorrectAnswer?: string
+  question?: string
+  nextButton?: string
+  resultButton?: string
+  correctAnswer?: string
+  incorrectAnswer?: string
 };
 
 export {
-    QuizProps,
-    Quiz,
-    Question,
-    Locale,
-}
+  QuizProps,
+  Quiz,
+  Question,
+  Locale,
+};

@@ -1,5 +1,5 @@
-import Quiz from "./Quiz";
+import Quiz from './Quiz';
 
-export { 
-    Quiz as default,
+export {
+  Quiz,
 };
