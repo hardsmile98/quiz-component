@@ -1,20 +1,28 @@
+/* eslint-disable react/require-default-props */
 import React from 'react';
-import { Question as QuestionProps } from '../../../types';
 
 type Props = {
-  currentQuestion: QuestionProps
+  onMakeAnswer?: Function,
+  questionItem: {
+    question: string,
+    image?: string,
+    answers: Array<string>
+    correctAnswer: number
+  },
+  answer: number | null,
 };
 
-function Question({ currentQuestion }: Props) {
+function Question({
+  onMakeAnswer,
+  questionItem,
+  answer,
+}: Props) {
   const {
     question,
     image,
     answers,
     correctAnswer,
-    point,
-    messageForCorrectAnswer,
-    messageForIncorrectAnswer,
-  } = currentQuestion;
+  } = questionItem;
 
   return (
     <>
@@ -27,6 +35,18 @@ function Question({ currentQuestion }: Props) {
           <img src={image} alt="" />
         </div>
       )}
+
+      <form>
+        {answers.map((answerItem, index) => (
+          <button
+            key={answerItem}
+            onClick={() => (onMakeAnswer ? onMakeAnswer(index) : undefined)}
+            type="button"
+          >
+            {answerItem}
+          </button>
+        ))}
+      </form>
     </>
   );
 }
