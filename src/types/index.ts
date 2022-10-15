@@ -13,6 +13,14 @@ type QuizProps = {
   locale?: Locale,
 };
 
+type QuestionsProps = {
+  isShowAllQuestions?: boolean,
+  onComplete?: Function,
+  onQuestionSubmit?: Function,
+  questions: Array<Question>,
+  locale?: Locale,
+};
+
 type Quiz = {
   title?: string
   description?: string
@@ -39,6 +47,7 @@ type Locale = {
 
 export {
   QuizProps,
+  QuestionsProps,
   Quiz,
   Question,
   Locale,

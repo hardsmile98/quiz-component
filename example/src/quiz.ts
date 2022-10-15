@@ -1,4 +1,5 @@
 export default {
+  title: 'Name quiz',
   questions: [
     {
       question: 'Как переводится word?',

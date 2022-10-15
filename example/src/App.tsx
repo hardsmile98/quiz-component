@@ -4,7 +4,7 @@ import quiz from './quiz';
 
 function App() {
   return (
-    <Quiz quiz={quiz} />
+    <Quiz quiz={quiz} shuffle />
   );
 }
 
