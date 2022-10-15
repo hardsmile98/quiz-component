@@ -12,7 +12,7 @@ function Quiz(props: QuizProps) {
     locale = DEFAULT_LOCALE,
   } = props;
 
-  return <div>INIT</div>;
+  return <div>INIT xxx 12313 1312yyyyxxx</div>;
 }
 
 export default Quiz;
