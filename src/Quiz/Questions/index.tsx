@@ -1,11 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { QuestionsProps } from '../../types';
+import Question from './Question';
 
 function Questions(props: QuestionsProps) {
+  const {
+    onComplete,
+    onQuestionSubmit,
+    questions,
+    locale,
+  } = props;
+
+  const {
+    question,
+  } = locale;
+
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+
+  const currentQuestion = questions[currentQuestionIndex];
+
   return (
-    <div>
-      1313
-    </div>
+    <>
+      <div>
+        {`${question} №${currentQuestionIndex + 1}`}
+      </div>
+
+      <Question
+        currentQuestion={currentQuestion}
+      />
+    </>
   );
 }
 

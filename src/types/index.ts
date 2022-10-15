@@ -1,11 +1,9 @@
-// isShowAllQuestions - show all questions at once
 // onComplete - a quiz summary object will be returned to the function
 // onQuestionSubmit - A user response for a question will be returned
 // quiz - quiz json object
 // shuffle - mixing questions
 // locale - object to override text
 type QuizProps = {
-  isShowAllQuestions?: boolean,
   onComplete?: Function,
   onQuestionSubmit?: Function,
   quiz: Quiz,
@@ -14,11 +12,10 @@ type QuizProps = {
 };
 
 type QuestionsProps = {
-  isShowAllQuestions?: boolean,
   onComplete?: Function,
   onQuestionSubmit?: Function,
   questions: Array<Question>,
-  locale?: Locale,
+  locale: Locale,
 };
 
 type Quiz = {

@@ -7,13 +7,14 @@ import '../styles/styles.css';
 
 function Quiz(props: QuizProps) {
   const {
-    isShowAllQuestions,
     onComplete,
     onQuestionSubmit,
     quiz,
     shuffle,
-    locale = DEFAULT_LOCALE,
+    locale,
   } = props;
+
+  const diffLocale = { ...DEFAULT_LOCALE, ...locale };
 
   const {
     title,
@@ -35,11 +36,10 @@ function Quiz(props: QuizProps) {
       </h3>
 
       <Questions
-        isShowAllQuestions={isShowAllQuestions}
         onComplete={onComplete}
         onQuestionSubmit={onQuestionSubmit}
         questions={questions}
-        locale={locale}
+        locale={diffLocale}
       />
     </div>
   );
