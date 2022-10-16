@@ -3,22 +3,20 @@ import { QuestionsProps } from '../../types';
 import Question from './Question';
 import Finish from './Finish';
 
-type NextProps = {
-  answer: number,
-  point: number,
-};
-
 function Questions(props: QuestionsProps) {
   const {
     onComplete,
     onQuestionSubmit,
     questions,
     locale,
+    shuffle,
   } = props;
 
   const {
-    question: questionText,
+    questionText,
     nextButton,
+    resultText,
+    endText,
   } = locale;
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -39,6 +37,8 @@ function Questions(props: QuestionsProps) {
     messageForIncorrectAnswer,
   } = currentQuestion;
 
+  const isVisibleMessage = messageForCorrectAnswer && messageForIncorrectAnswer && answer !== null;
+
   const questionItem = {
     question, image, answers, correctAnswer,
   };
@@ -46,12 +46,14 @@ function Questions(props: QuestionsProps) {
   const endQuiz = currentQuestionIndex === questions.length;
 
   const onMakeAnswer = (answerIndex: number) => {
-    setAnswer(answerIndex);
-    setIsCorrent(answerIndex + 1 === correctAnswer);
+    if (answer === null) {
+      setAnswer(answerIndex);
+      setIsCorrent(answerIndex + 1 === correctAnswer);
+    }
   };
 
   const onNext = () => {
-    if (answer) {
+    if (answer !== null) {
       const currentPoint = isCorrect ? point : 0;
 
       setUserAnswers((prevAnswers) => [...prevAnswers, answer]);
@@ -63,12 +65,18 @@ function Questions(props: QuestionsProps) {
   };
 
   if (endQuiz) {
-    return <Finish />;
+    return (
+      <Finish
+        points={points}
+        resultText={resultText}
+        endText={endText}
+      />
+    );
   }
 
   return (
     <>
-      <div>
+      <div className="quiz-mb">
         {`${questionText} №${currentQuestionIndex + 1}`}
       </div>
 
@@ -79,20 +87,23 @@ function Questions(props: QuestionsProps) {
       />
 
       <div>
-        {!!answer && (
-        <button
-          onClick={() => onNext()}
-          type="button"
-        >
-          {nextButton}
-        </button>
+        {answer !== null && (
+          <button
+            className="quiz-mb quiz-button quiz-next"
+            onClick={onNext}
+            type="button"
+          >
+            {nextButton}
+          </button>
         )}
 
-        <div>
-          {isCorrect
-            ? messageForCorrectAnswer
-            : messageForIncorrectAnswer}
-        </div>
+        {isVisibleMessage && (
+          <div className="quiz-message">
+            {isCorrect
+              ? messageForCorrectAnswer
+              : messageForIncorrectAnswer}
+          </div>
+        )}
       </div>
     </>
   );

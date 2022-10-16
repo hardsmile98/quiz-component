@@ -1,10 +1,26 @@
 import React from 'react';
 
-function Finish() {
+type Props = {
+  points: number,
+  resultText?: string,
+  endText?: string,
+};
+
+function Finish({ points, resultText, endText }: Props) {
   return (
-    <>
-      212123
-    </>
+    <div>
+      {endText && (
+        <div className="quiz-mb">
+          {endText}
+        </div>
+      )}
+
+      {!!(resultText && points) && (
+        <div className="quiz-mb">
+          {`${resultText}: ${points}`}
+        </div>
+      )}
+    </div>
   );
 }
 

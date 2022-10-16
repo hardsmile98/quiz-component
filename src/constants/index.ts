@@ -1,11 +1,10 @@
 import { Locale } from '../types';
 
 const DEFAULT_LOCALE: Locale = {
-  question: 'Question',
+  questionText: 'Question',
   nextButton: 'Next',
-  resultButton: 'Get result',
-  correctAnswer: 'Correct answer',
-  incorrectAnswer: 'Incorrect answer',
+  resultText: 'Your result',
+  endText: 'Сongratulations you passed the quiz',
 };
 
 export {

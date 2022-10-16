@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { QuizProps } from '../types';
-import { shuffleArray } from '../helpers';
 import { DEFAULT_LOCALE } from '../constants';
 import Questions from './Questions';
 import '../styles/styles.css';
@@ -10,7 +9,7 @@ function Quiz(props: QuizProps) {
     onComplete,
     onQuestionSubmit,
     quiz,
-    shuffle,
+    shuffle = false,
     locale,
   } = props;
 
@@ -18,26 +17,21 @@ function Quiz(props: QuizProps) {
 
   const {
     title,
-    questions: questionsQuiz,
+    questions,
   } = quiz;
 
-  const [questions, setQuestions] = useState(questionsQuiz);
-
-  useEffect(() => {
-    if (shuffle) {
-      setQuestions(shuffleArray(questionsQuiz));
-    }
-  }, [shuffle]);
-
   return (
-    <div>
-      <h3>
-        {title}
-      </h3>
+    <div className="quiz">
+      {title && (
+        <h3 className="quiz-mb">
+          {title}
+        </h3>
+      )}
 
       <Questions
         onComplete={onComplete}
         onQuestionSubmit={onQuestionSubmit}
+        shuffle={shuffle}
         questions={questions}
         locale={diffLocale}
       />

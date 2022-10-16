@@ -25,5 +25,7 @@ module.exports = {
       "import/prefer-default-export": 0,
       "@typescript-eslint/no-unused-vars": "warn",
       "import/no-extraneous-dependencies": "off",
+      "no-nested-ternary": "off",
+      "react/require-default-props": "off",
     },
   };

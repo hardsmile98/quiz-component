@@ -1,8 +1,7 @@
-/* eslint-disable react/require-default-props */
 import React from 'react';
 
 type Props = {
-  onMakeAnswer?: Function,
+  onMakeAnswer: Function,
   questionItem: {
     question: string,
     image?: string,
@@ -26,26 +25,39 @@ function Question({
 
   return (
     <>
-      <h3>
+      <h3 className="quiz-mb">
         {question}
       </h3>
 
       {image && (
-        <div>
+        <div className="quiz-mb">
           <img src={image} alt="" />
         </div>
       )}
 
       <form>
-        {answers.map((answerItem, index) => (
-          <button
-            key={answerItem}
-            onClick={() => (onMakeAnswer ? onMakeAnswer(index) : undefined)}
-            type="button"
-          >
-            {answerItem}
-          </button>
-        ))}
+        {answers.map((answerItem, index) => {
+          const isAnswer = answer !== null && answer === index;
+          const cls = isAnswer
+            ? answer === correctAnswer - 1
+              ? 'quiz-correct'
+              : 'quiz-incorrect'
+            : '';
+
+          const isDisabled = answer !== null && answer !== index;
+
+          return (
+            <button
+              className={`quiz-mb quiz-button ${cls}`}
+              key={answerItem}
+              onClick={() => onMakeAnswer(index)}
+              type="button"
+              disabled={isDisabled}
+            >
+              {answerItem}
+            </button>
+          );
+        })}
       </form>
     </>
   );

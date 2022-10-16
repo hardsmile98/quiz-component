@@ -1,4 +1,46 @@
-h1, h2, h3, h4, h5, h6 {
-    margin: 0;
+.quiz {
+    font-family: sans-serif;
+}
+
+.quiz-mb {
     padding: 0;
+    margin: 0;
+    margin-bottom: 5px;
+}
+
+.quiz-button {
+    border: 1px solid gray;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.quiz-button:disabled {
+    cursor: not-allowed;
+}
+
+.quiz-next {
+    width: auto;
+}
+
+.quiz-message {
+    font-size: 0.8rem;
+    padding:  10px;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+
+.quiz-correct {
+    color: white;
+    background: green;
+}
+
+.quiz-incorrect {
+    color: white;
+    background: red;
 }
