@@ -16,7 +16,6 @@ type QuestionsProps = {
   onQuestionSubmit?: Function,
   questions: Array<Question>,
   locale: Locale,
-  shuffle: boolean,
 };
 
 type Quiz = {
@@ -40,6 +39,8 @@ type Locale = {
   nextButton?: string
   resultText?: string
   endText?: string
+  correctText?: string
+  incorrectText?: string
 };
 
 export {

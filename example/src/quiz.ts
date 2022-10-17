@@ -23,5 +23,16 @@ export default {
       correctAnswer: 2,
       point: 5,
     },
+    {
+      question: 'Как переводится car?',
+      answers: [
+        'цирк',
+        'машина',
+        'игра',
+        'мир',
+      ],
+      correctAnswer: 2,
+      point: 5,
+    },
   ],
 };

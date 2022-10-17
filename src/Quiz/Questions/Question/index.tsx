@@ -30,7 +30,7 @@ function Question({
       </h3>
 
       {image && (
-        <div className="quiz-mb">
+        <div className="quiz-mb quiz-image">
           <img src={image} alt="" />
         </div>
       )}

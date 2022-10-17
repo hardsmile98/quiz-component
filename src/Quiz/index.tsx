@@ -1,7 +1,8 @@
-import React from 'react';
-import { QuizProps } from '../types';
+import React, { useEffect, useState } from 'react';
+import { QuizProps, Question } from '../types';
 import { DEFAULT_LOCALE } from '../constants';
 import Questions from './Questions';
+import { shuffleArray } from '../helpers';
 import '../styles/styles.css';
 
 function Quiz(props: QuizProps) {
@@ -13,12 +14,18 @@ function Quiz(props: QuizProps) {
     locale,
   } = props;
 
-  const diffLocale = { ...DEFAULT_LOCALE, ...locale };
-
   const {
     title,
-    questions,
+    questions: questionsQuiz,
   } = quiz;
+
+  const [questions, setQuestions] = useState<Array<Question>>([]);
+
+  const diffLocale = { ...DEFAULT_LOCALE, ...locale };
+
+  useEffect(() => {
+    setQuestions(shuffle ? shuffleArray(questionsQuiz) : questionsQuiz);
+  }, []);
 
   return (
     <div className="quiz">
@@ -31,7 +38,6 @@ function Quiz(props: QuizProps) {
       <Questions
         onComplete={onComplete}
         onQuestionSubmit={onQuestionSubmit}
-        shuffle={shuffle}
         questions={questions}
         locale={diffLocale}
       />

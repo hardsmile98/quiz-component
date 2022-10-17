@@ -5,6 +5,8 @@ const DEFAULT_LOCALE: Locale = {
   nextButton: 'Next',
   resultText: 'Your result',
   endText: 'Сongratulations you passed the quiz',
+  correctText: 'Correct answers',
+  incorrectText: 'Incorrect answers',
 };
 
 export {

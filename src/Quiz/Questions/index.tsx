@@ -9,7 +9,6 @@ function Questions(props: QuestionsProps) {
     onQuestionSubmit,
     questions,
     locale,
-    shuffle,
   } = props;
 
   const {
@@ -17,6 +16,8 @@ function Questions(props: QuestionsProps) {
     nextButton,
     resultText,
     endText,
+    correctText,
+    incorrectText,
   } = locale;
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -24,6 +25,7 @@ function Questions(props: QuestionsProps) {
   const [points, setPoints] = useState(0);
   const [answer, setAnswer] = useState<null | number>(null);
   const [isCorrect, setIsCorrent] = useState<null | boolean>(null);
+  const [countCorrect, setCountCorrect] = useState(0);
 
   const currentQuestion = questions[currentQuestionIndex] || {};
 
@@ -43,12 +45,24 @@ function Questions(props: QuestionsProps) {
     question, image, answers, correctAnswer,
   };
 
+  const finishText = {
+    resultText, endText, correctText, incorrectText,
+  };
+
   const endQuiz = currentQuestionIndex === questions.length;
+
+  const countIncorrect = questions.length - countCorrect;
 
   const onMakeAnswer = (answerIndex: number) => {
     if (answer === null) {
+      const isCorrectAnswer = answerIndex + 1 === correctAnswer;
+
       setAnswer(answerIndex);
-      setIsCorrent(answerIndex + 1 === correctAnswer);
+      setIsCorrent(isCorrectAnswer);
+
+      if (isCorrectAnswer) {
+        setCountCorrect((prev) => prev + 1);
+      }
     }
   };
 
@@ -59,8 +73,13 @@ function Questions(props: QuestionsProps) {
       setUserAnswers((prevAnswers) => [...prevAnswers, answer]);
       setPoints((prevPoints) => prevPoints + currentPoint);
       setCurrentQuestionIndex((index) => index + 1);
+
       setAnswer(null);
       setIsCorrent(null);
+    }
+
+    if (typeof onQuestionSubmit === 'function') {
+      onQuestionSubmit();
     }
   };
 
@@ -68,8 +87,10 @@ function Questions(props: QuestionsProps) {
     return (
       <Finish
         points={points}
-        resultText={resultText}
-        endText={endText}
+        finishText={finishText}
+        countCorrect={countCorrect}
+        countIncorrect={countIncorrect}
+        onComplete={onComplete}
       />
     );
   }

@@ -1,12 +1,35 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 type Props = {
-  points: number,
-  resultText?: string,
-  endText?: string,
+  points: number
+  finishText: {
+    resultText?: string
+    endText?: string
+    correctText?: string
+    incorrectText?: string
+  }
+  countCorrect: number
+  countIncorrect: number
+  onComplete?: Function,
 };
 
-function Finish({ points, resultText, endText }: Props) {
+function Finish({
+  points,
+  finishText,
+  countCorrect,
+  countIncorrect,
+  onComplete,
+}: Props) {
+  const {
+    endText, resultText, correctText, incorrectText,
+  } = finishText;
+
+  useEffect(() => {
+    if (typeof onComplete === 'function') {
+      onComplete();
+    }
+  }, []);
+
   return (
     <div>
       {endText && (
@@ -15,7 +38,21 @@ function Finish({ points, resultText, endText }: Props) {
         </div>
       )}
 
-      {!!(resultText && points) && (
+      {correctText && (
+        <div className="quiz-mb">
+          {`${correctText} : `}
+          <b>{countCorrect}</b>
+        </div>
+      )}
+
+      {incorrectText && (
+        <div className="quiz-mb">
+          {`${incorrectText} : `}
+          <b>{countIncorrect}</b>
+        </div>
+      )}
+
+      {resultText && (
         <div className="quiz-mb">
           {`${resultText}: ${points}`}
         </div>
