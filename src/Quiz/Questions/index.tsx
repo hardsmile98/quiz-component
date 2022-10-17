@@ -21,7 +21,6 @@ function Questions(props: QuestionsProps) {
   } = locale;
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [userAnswers, setUserAnswers] = useState<Array<number>>([]);
   const [points, setPoints] = useState(0);
   const [answer, setAnswer] = useState<null | number>(null);
   const [isCorrect, setIsCorrent] = useState<null | boolean>(null);
@@ -70,7 +69,6 @@ function Questions(props: QuestionsProps) {
     if (answer !== null) {
       const currentPoint = isCorrect ? point : 0;
 
-      setUserAnswers((prevAnswers) => [...prevAnswers, answer]);
       setPoints((prevPoints) => prevPoints + currentPoint);
       setCurrentQuestionIndex((index) => index + 1);
 
