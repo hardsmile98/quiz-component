@@ -18,4 +18,3 @@ node_modules
 # Config files
 environment.toml
 .env
-yarn.lock

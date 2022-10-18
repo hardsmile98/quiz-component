@@ -1,44 +1,48 @@
-/* eslint-disable import/no-unresolved */
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const devOption = {
-  entry: path.resolve(__dirname, './example/src/index.tsx'),
-  output: {
-    filename: 'index.js',
-    path: path.resolve(__dirname, './dist'),
-    clean: true,
-  },
-  devtool: 'source-map',
-};
-
-const baseOption = {
-  resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx'],
-  },
+const devOptions = {
   devServer: {
     static: './dist',
     port: 8000,
+  },
+};
+
+module.exports = ({ development }) => ({
+  entry: development ? './example/src/index.tsx' : './src/index.tsx',
+  devtool: development ? 'inline-source-map' : false,
+  mode: development ? 'development' : 'production',
+  output: {
+    filename: 'quiz.js',
+    path: path.resolve(__dirname, 'dist'),
+    library: 'quiz',
+    libraryExport: 'default',
+    libraryTarget: 'umd',
+    umdNamedDefine: true,
+    globalObject: 'typeof self === \'undefined\' ? this : self',
+  },
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js', '.jsx'],
   },
   module: {
     rules: [
       {
         test: /\.(tsx|ts)$/,
-        use: ['ts-loader'],
+        exclude: /node_modules/,
+        use: ['babel-loader', 'ts-loader'],
       },
       {
         test: /\.(scss|css)$/,
+        exclude: /node_modules/,
         use: ['style-loader', 'css-loader'],
       },
     ],
   },
-  plugins: [
+  plugins: development ? [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, './example/public/index.html'),
       filename: path.resolve(__dirname, './dist/index.html'),
     }),
-  ],
-  ...devOption,
-};
-
-module.exports = baseOption;
+  ] : [],
+  ...(development && devOptions),
+});

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { QuizProps, Question } from '../types';
 import { DEFAULT_LOCALE } from '../constants';
 import Questions from './Questions';
-import { shuffleArray } from '../helpers';
+import { shuffleArray } from '../utils';
 import '../styles/styles.css';
 
 function Quiz(props: QuizProps) {
