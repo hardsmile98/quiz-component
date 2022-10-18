@@ -1,6 +1,8 @@
 # quiz-component-react
 :orange_book: React Quiz Component 
 
+[![NPM version](https://img.shields.io/npm/v/quiz-component-react.svg)](https://www.npmjs.com/package/quiz-component-react) [![License](https://img.shields.io/npm/l/quiz-component-react.svg)](https://github.com/wingkwong/quiz-component-react/blob/main/LICENSE)
+
 quiz-component-react is a React component allowing users to attempt a quiz.
 
 ## Features
