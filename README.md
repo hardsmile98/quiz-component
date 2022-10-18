@@ -1,5 +1,5 @@
 # quiz-component-react
-:blue_book: React Quiz Component 
+:orange_book: React Quiz Component 
 
 quiz-component-react is a React component allowing users to attempt a quiz.
 
@@ -18,6 +18,43 @@ npm i quiz-component-react
 ## Importing quiz-component-react
 ```
 import Quiz from 'quiz-component-react';
+```
+
+## Defining Your Quiz Source
+The quiz source is a JSON object.
+```javascript
+export const quiz =  {
+  "title": "Title quiz",
+  "questions": [
+    {
+      "question": "Paul can't touch the ceiling because he is too ______.",
+      "image": "src image",
+      "answers": [
+        "shortening",
+        "shortly",
+        "short",
+        "shortness"
+      ],
+      "correctAnswer": "3",
+      "messageForCorrectAnswer": "Correct answer. Good job.",
+      "messageForIncorrectAnswer": "Incorrect answer. Please try again.",
+      "point": "20"
+    },
+  ]
+} 
+```
+
+### Locale Customization 
+If you want to use your customized text, you can send props locale
+```javascript
+ "locale": {
+    "questionText": "Question",
+    "nextButton": "Next",
+    "resultText": "Your result",
+    "endText": "Сongratulations you passed the quiz",
+    "correctText": "Correct answers",
+    "incorrectText": "Incorrect answers",
+  } 
 ```
 
 ## Props
