@@ -1,5 +1,5 @@
 # quiz-component-react
-:orange_book: React Quiz Component 
+:blue_book: React Quiz Component 
 
 quiz-component-react is a React component allowing users to attempt a quiz.
 
