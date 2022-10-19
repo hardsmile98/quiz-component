@@ -12,6 +12,7 @@ function Quiz(props: QuizProps) {
     quiz,
     shuffle = false,
     locale,
+    isPorgressBar = false,
   } = props;
 
   const {
@@ -27,6 +28,12 @@ function Quiz(props: QuizProps) {
     setQuestions(shuffle ? shuffleArray(questionsQuiz) : questionsQuiz);
   }, []);
 
+  const isErrorProps = !Array.isArray(questionsQuiz);
+
+  if (isErrorProps) {
+    return <div>Error props!</div>;
+  }
+
   return (
     <div className="quiz">
       {title && (
@@ -40,6 +47,7 @@ function Quiz(props: QuizProps) {
         onQuestionSubmit={onQuestionSubmit}
         questions={questions}
         locale={diffLocale}
+        isPorgressBar={isPorgressBar}
       />
     </div>
   );

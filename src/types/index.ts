@@ -3,12 +3,15 @@
 // quiz - quiz json object
 // shuffle - mixing questions
 // locale - object to override text
+// isPorgressBar - visible progress bar
+
 type QuizProps = {
   onComplete?: Function,
   onQuestionSubmit?: Function,
   quiz: Quiz,
   shuffle?: boolean,
   locale?: Locale,
+  isPorgressBar?: boolean,
 };
 
 type QuestionsProps = {
@@ -16,6 +19,7 @@ type QuestionsProps = {
   onQuestionSubmit?: Function,
   questions: Array<Question>,
   locale: Locale,
+  isPorgressBar: boolean,
 };
 
 type Quiz = {

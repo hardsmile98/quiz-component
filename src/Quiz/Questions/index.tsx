@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { QuestionsProps } from '../../types';
 import Question from './Question';
 import Finish from './Finish';
+import ProgressBar from './ProgressBar';
 
 function Questions(props: QuestionsProps) {
   const {
@@ -9,6 +10,7 @@ function Questions(props: QuestionsProps) {
     onQuestionSubmit,
     questions,
     locale,
+    isPorgressBar,
   } = props;
 
   const {
@@ -21,7 +23,7 @@ function Questions(props: QuestionsProps) {
   } = locale;
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [points, setPoints] = useState(0);
+  const [points, setPoints] = useState<null | number>(null);
   const [answer, setAnswer] = useState<null | number>(null);
   const [isCorrect, setIsCorrent] = useState<null | boolean>(null);
   const [countCorrect, setCountCorrect] = useState(0);
@@ -48,9 +50,11 @@ function Questions(props: QuestionsProps) {
     resultText, endText, correctText, incorrectText,
   };
 
-  const endQuiz = currentQuestionIndex === questions.length;
+  const countQuestions = questions.length;
 
-  const countIncorrect = questions.length - countCorrect;
+  const endQuiz = currentQuestionIndex === countQuestions;
+
+  const countIncorrect = countQuestions - countCorrect;
 
   const onMakeAnswer = (answerIndex: number) => {
     if (answer === null) {
@@ -69,7 +73,10 @@ function Questions(props: QuestionsProps) {
     if (answer !== null) {
       const currentPoint = isCorrect ? point : 0;
 
-      setPoints((prevPoints) => prevPoints + currentPoint);
+      if (currentPoint) {
+        setPoints((prevPoints) => (prevPoints === null ? currentPoint : prevPoints + currentPoint));
+      }
+
       setCurrentQuestionIndex((index) => index + 1);
 
       setAnswer(null);
@@ -95,6 +102,15 @@ function Questions(props: QuestionsProps) {
 
   return (
     <>
+      {isPorgressBar && (
+        <div className="quiz-mb">
+          <ProgressBar
+            index={currentQuestionIndex}
+            countAll={countQuestions}
+          />
+        </div>
+      )}
+
       <div className="quiz-mb">
         {`${questionText} №${currentQuestionIndex + 1}`}
       </div>
