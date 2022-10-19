@@ -6,7 +6,7 @@
 quiz-component-react is a React component allowing users to attempt a quiz.
 
 ## Features
-- Progress bar
+- Progress bar ✓
 - Allow retry
 - Custom result page
 - New question types
@@ -68,6 +68,7 @@ If you want to use your customized text, you can send props locale
 |onComplete|`function`|`null`|N|Function after end quiz|
 |onQuestionSubmit|`function`|`null`|N|Function after question|
 |locale|`function`|`locale`|N|Text in quiz|
+|isPorgressBar|`boolean`|`false`|N|Show progress bar|
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
