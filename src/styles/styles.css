@@ -48,3 +48,18 @@
     color: white;
     background: red;
 }
+
+.quiz-progress {
+    width: 100%;
+    height: 10px;
+    background: LightGrey;
+    border-radius: 5px;
+}
+
+.quiz-progress > div {
+    width: 0;
+    transition: width 0.7s ease-in-out;
+    height: 10px;
+    background: darkgray;
+    border-radius: 5px;
+}

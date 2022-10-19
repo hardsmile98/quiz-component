@@ -10,7 +10,6 @@ export default {
         'кошка',
       ],
       correctAnswer: 1,
-      point: 5,
     },
     {
       question: 'Как переводится joke?',
@@ -21,7 +20,6 @@ export default {
         'мир',
       ],
       correctAnswer: 2,
-      point: 5,
     },
     {
       question: 'Как переводится car?',
@@ -32,7 +30,6 @@ export default {
         'мир',
       ],
       correctAnswer: 2,
-      point: 5,
     },
   ],
 };

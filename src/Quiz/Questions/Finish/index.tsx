@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 
 type Props = {
-  points: number
+  points: number | null
   finishText: {
     resultText?: string
     endText?: string
@@ -52,7 +52,7 @@ function Finish({
         </div>
       )}
 
-      {resultText && (
+      {resultText && points !== null && (
         <div className="quiz-mb">
           {`${resultText}: ${points}`}
         </div>
