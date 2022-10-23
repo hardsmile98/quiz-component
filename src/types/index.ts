@@ -4,6 +4,7 @@
 // shuffle - mixing questions
 // locale - object to override text
 // isPorgressBar - visible progress bar
+// isAllowRetry - allow retry quiz
 
 type QuizProps = {
   onComplete?: Function,
@@ -12,6 +13,7 @@ type QuizProps = {
   shuffle?: boolean,
   locale?: Locale,
   isPorgressBar?: boolean,
+  isAllowRetry?: boolean,
 };
 
 type QuestionsProps = {
@@ -20,6 +22,7 @@ type QuestionsProps = {
   questions: Array<Question>,
   locale: Locale,
   isPorgressBar: boolean,
+  isAllowRetry: boolean,
 };
 
 type Quiz = {
@@ -45,6 +48,7 @@ type Locale = {
   endText?: string
   correctText?: string
   incorrectText?: string
+  retryText?: string
 };
 
 export {

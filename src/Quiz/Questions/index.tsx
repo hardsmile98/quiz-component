@@ -11,6 +11,7 @@ function Questions(props: QuestionsProps) {
     questions,
     locale,
     isPorgressBar,
+    isAllowRetry,
   } = props;
 
   const {
@@ -20,6 +21,7 @@ function Questions(props: QuestionsProps) {
     endText,
     correctText,
     incorrectText,
+    retryText,
   } = locale;
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -88,6 +90,14 @@ function Questions(props: QuestionsProps) {
     }
   };
 
+  const onRetry = () => {
+    setCurrentQuestionIndex(0);
+    setPoints(null);
+    setAnswer(null);
+    setIsCorrent(null);
+    setCountCorrect(0);
+  };
+
   if (endQuiz) {
     return (
       <Finish
@@ -96,6 +106,9 @@ function Questions(props: QuestionsProps) {
         countCorrect={countCorrect}
         countIncorrect={countIncorrect}
         onComplete={onComplete}
+        isAllowRetry={isAllowRetry}
+        retryText={retryText}
+        onRetry={onRetry}
       />
     );
   }

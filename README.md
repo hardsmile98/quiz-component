@@ -7,7 +7,7 @@ quiz-component-react is a React component allowing users to attempt a quiz.
 
 ## Features
 - Progress bar ✓
-- Allow retry
+- Allow retry ✓
 - Custom result page
 - New question types
 - Allow markdown in question
@@ -19,7 +19,7 @@ npm i quiz-component-react
 ```
 ## Importing quiz-component-react
 ```
-import Quiz from 'quiz-component-react';
+import { Quiz } from 'quiz-component-react';
 ```
 
 ## Defining Your Quiz Source
@@ -56,6 +56,7 @@ If you want to use your customized text, you can send props locale
     "endText": "Сongratulations you passed the quiz",
     "correctText": "Correct answers",
     "incorrectText": "Incorrect answers",
+    "retryText": "Retry",
   } 
 ```
 
@@ -69,6 +70,7 @@ If you want to use your customized text, you can send props locale
 |onQuestionSubmit|`function`|`null`|N|Function after question|
 |locale|`function`|`locale`|N|Text in quiz|
 |isPorgressBar|`boolean`|`false`|N|Show progress bar|
+|isAllowRetry|`boolean`|`false`|N|Allow retry quiz|
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details

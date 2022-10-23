@@ -13,6 +13,7 @@ function Quiz(props: QuizProps) {
     shuffle = false,
     locale,
     isPorgressBar = false,
+    isAllowRetry = false,
   } = props;
 
   const {
@@ -48,6 +49,7 @@ function Quiz(props: QuizProps) {
         questions={questions}
         locale={diffLocale}
         isPorgressBar={isPorgressBar}
+        isAllowRetry={isAllowRetry}
       />
     </div>
   );

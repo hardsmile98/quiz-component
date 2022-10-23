@@ -7,6 +7,7 @@ const DEFAULT_LOCALE: Locale = {
   endText: 'Сongratulations you passed the quiz',
   correctText: 'Correct answers',
   incorrectText: 'Incorrect answers',
+  retryText: 'Retry',
 };
 
 export {
