@@ -28,7 +28,7 @@
     cursor: not-allowed;
 }
 
-.quiz-next {
+.quiz-next, .quiz-retry {
     width: auto;
 }
 

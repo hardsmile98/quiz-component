@@ -4,7 +4,12 @@ import quiz from './quiz';
 
 function App() {
   return (
-    <Quiz quiz={quiz} shuffle isPorgressBar />
+    <Quiz
+      quiz={quiz}
+      shuffle
+      isPorgressBar
+      isAllowRetry
+    />
   );
 }
 

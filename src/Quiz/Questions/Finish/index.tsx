@@ -11,6 +11,9 @@ type Props = {
   countCorrect: number
   countIncorrect: number
   onComplete?: Function,
+  retryText?: string,
+  isAllowRetry: boolean,
+  onRetry: Function,
 };
 
 function Finish({
@@ -19,6 +22,9 @@ function Finish({
   countCorrect,
   countIncorrect,
   onComplete,
+  isAllowRetry,
+  retryText,
+  onRetry,
 }: Props) {
   const {
     endText, resultText, correctText, incorrectText,
@@ -56,6 +62,16 @@ function Finish({
         <div className="quiz-mb">
           {`${resultText}: ${points}`}
         </div>
+      )}
+
+      {isAllowRetry && (
+        <button
+          type="button"
+          className="quiz-mb quiz-button quiz-retry"
+          onClick={() => onRetry()}
+        >
+          {retryText}
+        </button>
       )}
     </div>
   );
