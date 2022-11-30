@@ -1,6 +1,6 @@
 {
   "name": "quiz-component-react",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "quiz component react",
   "main": "dist/quiz.js",
   "types": "dist/quiz.d.ts",
