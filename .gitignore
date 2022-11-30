@@ -13,7 +13,7 @@ build/Release
 node_modules
 
 # Babel build output
-/lib
+/dist
 
 # Config files
 environment.toml

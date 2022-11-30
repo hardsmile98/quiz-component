@@ -4,7 +4,6 @@
   "description": "quiz component react",
   "main": "dist/quiz.js",
   "types": "dist/quiz.d.ts",
-  "module": "dist/quiz.js",
   "dependencies": {},
   "devDependencies": {
     "babel-loader": "^8.2.4",

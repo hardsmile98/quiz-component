@@ -12,14 +12,14 @@ module.exports = ({ development }) => ({
   entry: development ? './example/src/index.tsx' : './src/index.tsx',
   devtool: development ? 'inline-source-map' : false,
   mode: development ? 'development' : 'production',
+  optimization: !development ? {
+    minimize: true,
+    usedExports: true,
+  } : {},
   output: {
-    filename: 'quiz.js',
     path: path.resolve(__dirname, 'dist'),
-    library: 'quiz',
-    libraryExport: 'default',
-    libraryTarget: 'umd',
-    umdNamedDefine: true,
-    globalObject: 'typeof self === \'undefined\' ? this : self',
+    filename: 'quiz.js',
+    libraryTarget: 'commonjs',
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
