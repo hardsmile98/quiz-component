@@ -1,9 +1,9 @@
 {
   "name": "quiz-component-react",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "quiz component react",
-  "main": "dist/quiz.js",
-  "types": "dist/quiz.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "dependencies": {},
   "devDependencies": {
     "babel-loader": "^8.2.4",

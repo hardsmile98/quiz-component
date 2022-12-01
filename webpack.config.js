@@ -18,7 +18,7 @@ module.exports = ({ development }) => ({
   } : {},
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'quiz.js',
+    filename: 'index.js',
     libraryTarget: 'commonjs',
   },
   resolve: {
@@ -38,7 +38,7 @@ module.exports = ({ development }) => ({
       },
     ],
   },
-  externals: {
+  externals: !development ? {
     react: {
       commonjs: 'react',
       commonjs2: 'react',
@@ -51,7 +51,7 @@ module.exports = ({ development }) => ({
       amd: 'ReactDOM',
       root: 'ReactDOM',
     },
-  },
+  } : {},
   plugins: development ? [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, './example/public/index.html'),
