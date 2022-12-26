@@ -71,6 +71,7 @@ If you want to use your customized text, you can send props locale
 |locale|`function`|`locale`|N|Text in quiz|
 |isPorgressBar|`boolean`|`false`|N|Show progress bar|
 |isAllowRetry|`boolean`|`false`|N|Allow retry quiz|
+|isAllowRetry|`boolean`|`false`|N|Don't show answer after select|
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
