@@ -9,6 +9,7 @@ function App() {
       shuffle
       isPorgressBar
       isAllowRetry
+      isNoShowAnswer
     />
   );
 }

@@ -9,12 +9,14 @@ type Props = {
     correctAnswer: number
   },
   answer: number | null,
+  isNoShowAnswer: boolean,
 };
 
 function Question({
   onMakeAnswer,
   questionItem,
   answer,
+  isNoShowAnswer,
 }: Props) {
   const {
     question,
@@ -38,7 +40,7 @@ function Question({
       <form>
         {answers.map((answerItem, index) => {
           const isAnswer = answer !== null && answer === index;
-          const cls = isAnswer
+          const cls = isAnswer && !isNoShowAnswer
             ? answer === correctAnswer - 1
               ? 'quiz-correct'
               : 'quiz-incorrect'

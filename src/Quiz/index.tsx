@@ -14,6 +14,7 @@ function Quiz(props: QuizProps) {
     locale,
     isPorgressBar = false,
     isAllowRetry = false,
+    isNoShowAnswer = false,
   } = props;
 
   const {
@@ -50,6 +51,7 @@ function Quiz(props: QuizProps) {
         locale={diffLocale}
         isPorgressBar={isPorgressBar}
         isAllowRetry={isAllowRetry}
+        isNoShowAnswer={isNoShowAnswer}
       />
     </div>
   );

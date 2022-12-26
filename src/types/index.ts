@@ -5,6 +5,7 @@
 // locale - object to override text
 // isPorgressBar - visible progress bar
 // isAllowRetry - allow retry quiz
+// isNoShowAnswer - don't show answer after selection
 
 type QuizProps = {
   onComplete?: Function,
@@ -14,6 +15,7 @@ type QuizProps = {
   locale?: Locale,
   isPorgressBar?: boolean,
   isAllowRetry?: boolean,
+  isNoShowAnswer?: boolean,
 };
 
 type QuestionsProps = {
@@ -23,6 +25,7 @@ type QuestionsProps = {
   locale: Locale,
   isPorgressBar: boolean,
   isAllowRetry: boolean,
+  isNoShowAnswer: boolean,
 };
 
 type Quiz = {

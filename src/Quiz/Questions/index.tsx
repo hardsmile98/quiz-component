@@ -12,6 +12,7 @@ function Questions(props: QuestionsProps) {
     locale,
     isPorgressBar,
     isAllowRetry,
+    isNoShowAnswer,
   } = props;
 
   const {
@@ -132,6 +133,7 @@ function Questions(props: QuestionsProps) {
         onMakeAnswer={onMakeAnswer}
         questionItem={questionItem}
         answer={answer}
+        isNoShowAnswer={isNoShowAnswer}
       />
 
       <div>
